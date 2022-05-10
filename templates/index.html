@@ -1,50 +1,89 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="{{url_for('static',path='assets/css/index.css')}}">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-        <script src="{{url_for('static',path='assets/js/index.js')}}" async defer></script>
-    </head>
-    <body>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{url_for('static',path='assets/css/index.css')}}">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-        <div class="title">
+  <script src="{{url_for('static',path='assets/js/index.js')}}" async defer></script>
+</head>
 
-           <div>
-          <div id="chatbot" class="main-card collapsed">
-            <button id="chatbot_toggle">
-              <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="currentColor"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M15 4v7H5.17l-.59.59-.58.58V4h11m1-2H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm5 4h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1z"/></svg>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+<body>
+
+  <div class="title">
+
+    <div>
+      <div id="chatbot" class="main-card collapsed">
+        <button id="chatbot_toggle">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M15 4v7H5.17l-.59.59-.58.58V4h11m1-2H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm5 4h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1z" />
           </svg>
-            </button>
-            <div class="main-title">
-              <div>
-                <svg viewBox="0 0 640 512" title="robot">
-                  <path fill="currentColor" d="M32,224H64V416H32A31.96166,31.96166,0,0,1,0,384V256A31.96166,31.96166,0,0,1,32,224Zm512-48V448a64.06328,64.06328,0,0,1-64,64H160a64.06328,64.06328,0,0,1-64-64V176a79.974,79.974,0,0,1,80-80H288V32a32,32,0,0,1,64,0V96H464A79.974,79.974,0,0,1,544,176ZM264,256a40,40,0,1,0-40,40A39.997,39.997,0,0,0,264,256Zm-8,128H192v32h64Zm96,0H288v32h64ZM456,256a40,40,0,1,0-40,40A39.997,39.997,0,0,0,456,256Zm-8,128H384v32h64ZM640,256V384a31.96166,31.96166,0,0,1-32,32H576V224h32A31.96166,31.96166,0,0,1,640,256Z" />
-                </svg>
-              </div>
-              <span>Chatbot</span>
-          
-            </div>
-            <div class="chat-area" id="message-box">
-            </div>
-            <div class="line"></div>
-            <div class="input-div">
-              <input class="input-message" name="message" type="text" id="message" placeholder="Type your message ..." />
-              <button class="input-send" id='send_msg' onclick="send()">
-                <svg style="width:24px;height:24px">
-                  <path d="M2,21L23,12L2,3V10L17,12L2,14V21Z" />
-                </svg>
-              </button>
-            </div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="display:none">
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z" />
+          </svg>
+          </svg>
+        </button>
+        <div class="main-title">
+          <div>
+            <svg width="94" height="94" viewBox="0 0 94 94" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g filter="url(#filter0_d_2706_7714)">
+              <rect x="6" y="3" width="82.3695" height="82.3695" rx="9.46775" fill="white"/>
+              </g>
+              <path d="M36.339 27.5869V61.3539H43.9606V27.5869H36.339ZM24.5044 27.5869H16.8828V61.3539H24.5044V27.5869Z" fill="#F47249"/>
+              <path d="M62.5112 40.9648H47.4102V47.8972H62.5112V40.9648Z" fill="#30B130"/>
+              <path d="M57.9052 35.542H52.0352V53.3465H57.9052V35.542Z" fill="#30B130"/>
+              <path d="M43.9369 40.6572H16.8828V48.2547H43.9369V40.6572Z" fill="#F47249"/>
+              <path d="M75.3256 46.9254C74.2368 45.3906 72.7693 44.4441 70.9704 44.0092C72.58 43.4976 73.8581 42.5766 74.8285 41.272C75.799 39.9674 76.2724 38.3046 76.2724 36.3093C76.2724 33.6233 75.3729 31.4745 73.5741 29.914C71.7752 28.3536 69.2899 27.5605 66.1182 27.5605H52.0586V34.186H54.1888L64.6744 34.1349C65.9289 34.1349 66.8756 34.4419 67.5384 35.0558C68.2011 35.6697 68.5325 36.5395 68.5325 37.6907C68.5325 40.1209 66.1892 40.9394 64.13 40.9394V47.8719C64.13 47.8719 69.2899 47.8719 69.2899 51.0184C69.2899 52.1951 68.9349 53.116 68.2485 53.73C67.562 54.3439 66.5679 54.6765 65.2898 54.6765H52.0586V61.3276H66.6153C69.8816 61.3276 72.4143 60.509 74.2605 58.8462C76.083 57.1834 77.0061 54.9579 77.0061 52.144C76.9825 50.1742 76.4381 48.4347 75.3256 46.9254Z" fill="#F47249"/>
+              <defs>
+              <filter id="filter0_d_2706_7714" x="0.509416" y="0.254708" width="93.3523" height="93.3503" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+              <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+              <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+              <feOffset dy="2.74529"/>
+              <feGaussianBlur stdDeviation="2.74529"/>
+              <feComposite in2="hardAlpha" operator="out"/>
+              <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"/>
+              <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2706_7714"/>
+              <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2706_7714" result="shape"/>
+              </filter>
+              </defs>
+              </svg>
+              
           </div>
-        
-        
-    </body>
+          <div style="display: flex;flex-direction: column;justify-content: center;vertical-align: middle;">
+            <span>HB+</span>
+            <span id="status" style="font-size: x-small;color: lime;">online</span>
+
+          </div>
+
+        </div>
+        <div class="chat-area" id="message-box">
+        </div>
+        <div class="line"></div>
+        <div class="input-div">
+          <input class="input-message" name="message" type="text" id="message" placeholder="Type your message ..." />
+          <button class="input-send" id='send_msg' onclick="send()">
+            <svg style="width:24px;height:24px">
+              <path d="M2,21L23,12L2,3V10L17,12L2,14V21Z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+
+
+
+</body>
+
 </html>

@@ -1,13 +1,104 @@
 var running = false;
+
 function send() {
   if (running == true) return;
   var msg = document.getElementById("message").value;
   if (msg == "") return;
   running = true;
   addMsg(msg);
-  //DELEAY MESSAGE RESPOSE Echo
-  // window.setTimeout(addResponseMsg, 1000, msg);
+
+
+  $.ajax({
+    url: '/query',
+    method: 'post',
+    data: {
+      'queryText': msg
+    },
+
+
+    success: async function (result) {
+      result = JSON.parse(result);
+      
+      var simpleMessages=result.simpleMessages
+      var suggestionsMessages=result.suggestionsMessages
+
+      let i, len, text;
+
+      console.log(result);
+
+      for (i = 0, len = simpleMessages.length, text = ""; i < len; i++) {
+        addResponseLoader()
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        removeResponseLoader()
+        addResponseMsg(simpleMessages[i])
+      }
+
+
+      for (i = 0, len = suggestionsMessages.length, text = ""; i < len; i++) {
+        addResponseLoader()
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        removeResponseLoader()
+        addSuggestionsMessages(suggestionsMessages[i])
+      }
+      
+      
+
+    }
+  })
+
+
 }
+function clickSend(msg) {
+  if (running == true) return;
+  
+  if (msg == "") return;
+  running = true;
+  addMsg(msg);
+
+
+  $.ajax({
+    url: '/query',
+    method: 'post',
+    data: {
+      'queryText': msg
+    },
+
+
+    success: async function (result) {
+      result = JSON.parse(result);
+      
+      var simpleMessages=result.simpleMessages
+      var suggestionsMessages=result.suggestionsMessages
+
+      let i, len, text;
+
+      console.log(result);
+
+      for (i = 0, len = simpleMessages.length, text = ""; i < len; i++) {
+        addResponseLoader()
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        removeResponseLoader()
+        addResponseMsg(simpleMessages[i])
+      }
+
+
+      for (i = 0, len = suggestionsMessages.length, text = ""; i < len; i++) {
+        addResponseLoader()
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        removeResponseLoader()
+        addSuggestionsMessages(suggestionsMessages[i])
+      }
+      
+      
+
+    }
+  })
+
+
+}
+
+
+
 function addMsg(msg) {
   var div = document.createElement("div");
   div.innerHTML =
@@ -32,6 +123,43 @@ function addResponseMsg(msg) {
   ).scrollHeight;
   running = false;
 }
+
+
+function addSuggestionsMessages(msg) {
+  var div = document.createElement("div");
+  div.innerHTML = "<div class='chat-message-received' style='cursor:pointer;background-color:#c0dddd;' onclick='clickSend("+'"'+msg+'"'+")'>" + msg + "</div>";
+  div.className = "chat-message-div";
+  document.getElementById("message-box").appendChild(div);
+  document.getElementById("message-box").scrollTop = document.getElementById(
+    "message-box"
+  ).scrollHeight;
+  running = false;
+}
+
+
+function addResponseLoader() {
+  var div = document.createElement("div");
+  div.innerHTML = "<div class='chat-message-received' id='loader_active'><div class='loader' ><span></span><span></span><span></span></div></div>";
+  div.className = "chat-message-div";
+  document.getElementById("message-box").appendChild(div);
+  document.getElementById("message-box").scrollTop = document.getElementById(
+    "message-box"
+  ).scrollHeight;
+  running = false;
+}
+
+
+function removeResponseLoader() {
+
+  // document.getElementById("message-box").removeChild('loader_active');
+
+  $("#loader_active").remove()
+  
+}
+
+
+
+
 document.getElementById("message").addEventListener("keyup", function (event) {
   if (event.keyCode === 13) {
     event.preventDefault();
@@ -43,7 +171,7 @@ document.getElementById("message").addEventListener("keyup", function (event) {
       document.getElementById("chatbot").classList.remove("collapsed")
       document.getElementById("chatbot_toggle").children[0].style.display = "none"
       document.getElementById("chatbot_toggle").children[1].style.display = ""
-      setTimeout(addResponseMsg,1000,"Hi")
+      
     }
     else {
       document.getElementById("chatbot").classList.add("collapsed")
@@ -53,10 +181,19 @@ document.getElementById("message").addEventListener("keyup", function (event) {
   }
 
 
-  $(document).ready(function(){
 
-    $('#send_msg').on('click',function(){
-        
-    })
 
-  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
