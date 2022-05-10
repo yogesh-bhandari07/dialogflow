@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "holibasil",
+  "private_key_id": "26e7b545d7ff161e564f952ed97643e8b62e5239",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCAt+HA1qz7Zvus\nTJT1JvQgxNhJI/658fNZ/NhWvsvjKQ0EbcuWpc5veygoQ75pA6xxZ14kOIG7afUd\nOqPHweCYECeylulANVeJujldfdJqdjCep4CMMrYlDF//MEF1or0i/0Ey40no+ueH\njicGEPtpy/PdqrgvfHYhTQvuQ05nYtE1eDkNIFjbVhEiHG5sRc8pkA3yhCqlk1QX\nISfIqzxMloWu3yGG8Og5Ru/RHJ3499n/5X/kxLiwzeJjX5hElMXSOS8DtOezULbc\nPPn0mWP30oBda6+U6VYLwWXMcyraM+pWpmfqlgbsq1E5ic+8/XFo1gtT/3dBQ6OH\n7fFyPLp3AgMBAAECggEACDNZj1RIrQkAm8I9SJPKFem0mzmkhEA6ms8VvAu9KE8j\nOdcCPiojdCLKiiuBZBC3LyUWGwSmme7EOQUquL1MtnjBBAsX996YzHja0sQDYIOr\nJqXRS3KnpsXvum2z80Ss/B/QYueW0TW7A9M1/+2btup8MkaAJDZaaFYPnocXOwA6\nO+wKpZAdDjzErl/e/dlrLuDoS6oJ75OafIRhuT+FGbIJZCPWLC5JnRSjfHwNl4tI\np9kh5siInCjuHQUPl+SRIgG/Tf4lyJZtqOuj5VRhMq7dKV06Gjtps8wO3Z9nXOb1\n0AUZSuWEVHBZgA2LhEnl92AIliDsoQGc2Na4Q8gmkQKBgQC1oV4aZ84Gpicv7T54\nbk092AxyKNgbsDCIte//0RXE07AaIWvmxonym8oxf6xZMNIAWKCJkoSF7/lw+oaW\nG0UXU6Sr4X+OdtdbRkIDJnTlhfajcNchUKPrdiGEI0O5aUB9cUor5uSYs2Q+zEvi\na1EUp0dS+WzLAuNRIQMNKybTawKBgQC1bDtl387USpJQJyPa6LtQg2q5ts7oj0SA\nkjBS6JaW/n3WD9kHqCKWlCb+bEfhJ0BIuRqXFncCB1OWm96SGv7EnQ9NUTUTf9Kx\n/p9QLiQX/N7wKYq80MnGB4RU/SBCSymfZfAfE0H4lpgr8uu2hBEvbe1jkbPRHf0L\nqR7mFheEJQKBgBCK5vg+thwS7ATIdeUgHrbgQ5nuMGitLm51K6vADlyD70kh/CLj\nuFK5b7v8ZeUltirD57M//gP47F4m4zUuvKc4PgpNmoGOP2UXzBFfYkw5XFJch6uI\nHbXnZ3wSfiuX84C5XckL2Ywy4pF5p/uyTIs2BSAAibEfzTZpbE65vGqLAoGBAIDU\nLJG5Dhw+IAv+3z0yCuGvkHf0UpVeNxy9sscNFvJ+IUmC03DWeklHRzFgHuLJhqKd\nnz4u2697GGZYpQJHXSatCRK0WeZQ3IM89lBvk33dOUp9lWFjOgT/jX70iJXK3fGs\n54iJmk02UzTSOYPP4Iw3mV0dN/2FOA2xuJlWkrhpAoGAP7mUDyw0a6PVkoYZZPca\nTzxU4hElFTQbeVZDvK/+KFIAh83w1C2KoRN+SN/zOrCIoKmKokbRsHC/Fo9RMxr6\noBzr9CNnhyfluU0KxnaZMvg/gAEZsZQc+CJ125hHS6hetIgnNTjGknVX9j6Ol4gD\n2Cl9tjtkoR/iaP7ZIT0Ay28=\n-----END PRIVATE KEY-----\n",
+  "client_email": "holybasil@holibasil.iam.gserviceaccount.com",
+  "client_id": "104170909381745991279",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/holybasil%40holibasil.iam.gserviceaccount.com"
+}
