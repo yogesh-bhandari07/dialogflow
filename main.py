@@ -61,9 +61,7 @@ def dialogflowChat(query):
             response.query_result.fulfillment_messages[i]
             count=count+1 
         elif ('list_select' in response.query_result.fulfillment_messages[0]):
-            print(response.query_result.fulfillment_messages[0].list_select)
-            print(countOfMsgs)
-            # response.query_result.fulfillment_messages[i]
+
             count=count+1 
         else :
             pass

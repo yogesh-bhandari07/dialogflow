@@ -21,11 +21,9 @@ function send() {
       
       var simpleMessages=result.simpleMessages
       var suggestionsMessages=result.suggestionsMessages
+      var listsMessages=result.listsMessages
 
-      let i, len, text;
-
-      console.log(result);
-
+      var i, len, text;
       for (i = 0, len = simpleMessages.length, text = ""; i < len; i++) {
         addResponseLoader()
         await new Promise(resolve => setTimeout(resolve, 1000));
@@ -33,14 +31,14 @@ function send() {
         addResponseMsg(simpleMessages[i])
       }
 
-
+      var i, len, text;
       for (i = 0, len = suggestionsMessages.length, text = ""; i < len; i++) {
         addResponseLoader()
         await new Promise(resolve => setTimeout(resolve, 1000));
         removeResponseLoader()
         addSuggestionsMessages(suggestionsMessages[i])
       }
-      
+   
       
 
     }
@@ -72,7 +70,7 @@ function clickSend(msg) {
 
       let i, len, text;
 
-      console.log(result);
+      // console.log(result);
 
       for (i = 0, len = simpleMessages.length, text = ""; i < len; i++) {
         addResponseLoader()
@@ -88,7 +86,15 @@ function clickSend(msg) {
         removeResponseLoader()
         addSuggestionsMessages(suggestionsMessages[i])
       }
+      var listsMessages=result.listsMessages
       
+      if(listsMessages.length>0){
+        console.log(result.listsMessages);
+        addResponseLoader()
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        removeResponseLoader()
+        addListsMessages(listsMessages)
+      }
       
 
     }
@@ -128,6 +134,26 @@ function addResponseMsg(msg) {
 function addSuggestionsMessages(msg) {
   var div = document.createElement("div");
   div.innerHTML = "<div class='chat-message-received' style='cursor:pointer;background-color:#c0dddd;' onclick='clickSend("+'"'+msg+'"'+")'>" + msg + "</div>";
+  div.className = "chat-message-div";
+  document.getElementById("message-box").appendChild(div);
+  document.getElementById("message-box").scrollTop = document.getElementById(
+    "message-box"
+  ).scrollHeight;
+  running = false;
+}
+function addListsMessages(msgs) {
+  var div = document.createElement("div");
+  console.log('msgs');
+  var i, len, text; 
+  myhtml= "<div class='chat-message-received' style='cursor:pointer;background-color:#c0dddd;'><ul style='padding-left: 15px;'>";
+  for (i = 0, len = msgs.length, text = ""; i < len; i++) {
+    myhtml=myhtml+'<li>'+msgs[i]+'</li>';
+    }
+
+    myhtml+='</ul></div>';
+  
+    div.innerHTML=myhtml;
+
   div.className = "chat-message-div";
   document.getElementById("message-box").appendChild(div);
   document.getElementById("message-box").scrollTop = document.getElementById(

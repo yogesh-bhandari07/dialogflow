@@ -136,7 +136,7 @@ body {
     animation-duration: 100ms;
     color: black;
     border-radius: 8px 8px 2px 8px;
-    background-color: lavender;
+    background-color: #a3ebcd;
   }
   
   .chat-message-received {
@@ -149,7 +149,7 @@ body {
     animation-duration: 100ms;
     color: black;
     border-radius: 8px 8px 8px 2px;
-    background-color: lavender;
+    background-color: #95bdae;
   }
   
   @keyframes fadeIn {
