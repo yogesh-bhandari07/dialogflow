@@ -34,34 +34,58 @@ def dialogflowChat(query):
     except InvalidArgument:
         raise
 
+    # print(response)
 
     simpleMessages=[]
     suggestionsMessages=[]
+    listsMessages=[]
     responseDict={
         "simpleMessages":simpleMessages,
-        "suggestionsMessages":suggestionsMessages
+        "suggestionsMessages":suggestionsMessages,
+        'listsMessages':listsMessages
     }
 
     countOfMsgs=len(response.query_result.fulfillment_messages)
+
+    
+
+    
+        
+
     count=0
     for i in range(0,countOfMsgs):
-        if "platform" in response.query_result.fulfillment_messages[i]:
+        if "text" in response.query_result.fulfillment_messages[i]:
             response.query_result.fulfillment_messages[i]
             count=count+1
+        elif "suggestions" in response.query_result.fulfillment_messages[i]:
+            response.query_result.fulfillment_messages[i]
+            count=count+1 
+        elif ('list_select' in response.query_result.fulfillment_messages[0]):
+            print(response.query_result.fulfillment_messages[0].list_select)
+            print(countOfMsgs)
+            # response.query_result.fulfillment_messages[i]
+            count=count+1 
         else :
             pass
-
+    
     for i in range(0,count):
         if 'simple_responses' in response.query_result.fulfillment_messages[i]:
             simpleMessages.append(response.query_result.fulfillment_messages[i].simple_responses.simple_responses[0].text_to_speech)
-            
 
+        elif 'text' in response.query_result.fulfillment_messages[i]:
+            simpleMessages.append(response.query_result.fulfillment_messages[i].text.text[0])
+            # print(response.query_result.fulfillment_messages[i].text.text)
 
 
         elif 'suggestions' in response.query_result.fulfillment_messages[i]:
             suggestions_count= len(response.query_result.fulfillment_messages[i].suggestions.suggestions)
             for j in range(0,suggestions_count):
                 suggestionsMessages.append(response.query_result.fulfillment_messages[i].suggestions.suggestions[j].title)
+                
+        elif 'list_select' in response.query_result.fulfillment_messages[i]:
+            listsMessages_count= len(response.query_result.fulfillment_messages[i].list_select.items)
+            for j in range(0,listsMessages_count):
+                listsMessages.append(response.query_result.fulfillment_messages[i].list_select.items[j].title)
                 
 
 
