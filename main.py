@@ -12,7 +12,7 @@ import json
 import os
 from google.cloud import dialogflow_v2beta1 as dialogflow
 from google.api_core.exceptions import InvalidArgument
-
+from fastapi.middleware.cors import CORSMiddleware
 
 
 def dialogflowChat(query):
@@ -94,6 +94,15 @@ def dialogflowChat(query):
 
 
 app=FastAPI()
+
+origins = ["*"]
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 # add static files and templates
 app.mount("/static", StaticFiles(directory="./static"), name="static")
 templates = Jinja2Templates(directory="./templates")

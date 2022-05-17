@@ -1,12 +1,4 @@
-body {
-    height: 100vh;
-    font-family: Roboto, sans-serif;
-    margin: 0px;
-    background-color: white;
-    overflow: hidden;
-    background: gainsboro;
-    display:flex
-  }
+
   .title{
     margin:auto;
     font-size:smaller;
