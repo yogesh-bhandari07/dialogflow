@@ -37,7 +37,8 @@
         bottom: 0;
         position: absolute;
         transition: all 0.5s;
-        box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2),0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        /* box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2),0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px ;
       }
   #chatbot_toggle {
     position: absolute;
@@ -45,12 +46,14 @@
     border: none;
     height: 48px;
     width: 48px;
-    background: rebeccapurple;
+    background-image: linear-gradient(190deg, #1F1E2E 0%, #1F1E2E 42%);
     padding: 14px;
     color:white;
   }
   #chatbot_toggle:hover {
-    background: #7d56a5;
+    /* background: #7d56a5; */
+    background-image: linear-gradient(190deg, #1F1E2E 0%, #1F1E2E 42%);
+    cursor: pointer;
   }
   .line {
     height: 1px;
@@ -59,7 +62,8 @@
     opacity: 0.2;
   }
   .main-title {
-    background-color: rebeccapurple;
+    /* background-color: rebeccapurple; */
+    background-image: linear-gradient(190deg, #1F1E2E 0%, #1F1E2E 42%);
     font-size: large;
     font-weight: bold;
     display: flex;
@@ -108,10 +112,10 @@
     cursor: pointer;
   }
   .input-send:hover {
-    background: lavender;
+    background:#fff;
   }
   .input-send svg {
-    fill: rebeccapurple;
+    fill:linear-gradient(190deg, #1F1E2E 0%, #1F1E2E 42%);;
     margin: 11px 8px;
   }
   .chat-message-div {
@@ -128,7 +132,9 @@
     animation-duration: 100ms;
     color: black;
     border-radius: 8px 8px 2px 8px;
-    background-color: #a3ebcd;
+    background-color: #aff9b1;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px ;
+    
   }
   
   .chat-message-received {
@@ -139,9 +145,12 @@
     animation-iteration-count: 1;
     animation-timing-function: ease-in;
     animation-duration: 100ms;
-    color: black;
+    color: #000;
     border-radius: 8px 8px 8px 2px;
-    background-color: #95bdae;
+    background-color: #b7f3dd;
+
+ 
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px ;
   }
   
   @keyframes fadeIn {

@@ -39,30 +39,22 @@ def dialogflowChat(query):
     simpleMessages=[]
     suggestionsMessages=[]
     listsMessages=[]
+    linkOutSuggestion={}
     responseDict={
         "simpleMessages":simpleMessages,
         "suggestionsMessages":suggestionsMessages,
-        'listsMessages':listsMessages
+        'listsMessages':listsMessages,
+        'linkOutSuggestion':linkOutSuggestion
     }
 
     countOfMsgs=len(response.query_result.fulfillment_messages)
 
-    
-
-    
-        
-
     count=0
     for i in range(0,countOfMsgs):
-        if "text" in response.query_result.fulfillment_messages[i]:
-            response.query_result.fulfillment_messages[i]
-            count=count+1
-        elif "suggestions" in response.query_result.fulfillment_messages[i]:
-            response.query_result.fulfillment_messages[i]
-            count=count+1 
-        elif ('list_select' in response.query_result.fulfillment_messages[0]):
+        if "text" in response.query_result.fulfillment_messages[i] or "suggestions" in response.query_result.fulfillment_messages[i] or 'list_select' in response.query_result.fulfillment_messages[i] or 'link_out_suggestion' in response.query_result.fulfillment_messages[i]:
 
-            count=count+1 
+            count=count+1
+            print(response.query_result.fulfillment_messages[i])
         else :
             pass
     
@@ -84,6 +76,12 @@ def dialogflowChat(query):
             listsMessages_count= len(response.query_result.fulfillment_messages[i].list_select.items)
             for j in range(0,listsMessages_count):
                 listsMessages.append(response.query_result.fulfillment_messages[i].list_select.items[j].title)
+                
+        elif 'link_out_suggestion' in response.query_result.fulfillment_messages[i]:
+            linkOutSuggestion[response.query_result.fulfillment_messages[i].link_out_suggestion.destination_name]=response.query_result.fulfillment_messages[i].link_out_suggestion.uri
+            # linkOutSuggestion_count= len(response.query_result.fulfillment_messages[i].linkOutSuggestion)
+            # for j in range(0,linkOutSuggestion_count):
+            #     linkOutSuggestion[response.query_result.fulfillment_messages[i].linkOutSuggestion.destinationName]=response.query_result.fulfillment_messages[i].linkOutSuggestion.uri
                 
 
 

@@ -67,6 +67,9 @@ function clickSend(msg) {
       
       var simpleMessages=result.simpleMessages
       var suggestionsMessages=result.suggestionsMessages
+      var linkOutSuggestion=result.linkOutSuggestion
+
+      
 
       let i, len, text;
 
@@ -86,8 +89,10 @@ function clickSend(msg) {
         removeResponseLoader()
         addSuggestionsMessages(suggestionsMessages[i])
       }
+
+
+
       var listsMessages=result.listsMessages
-      
       if(listsMessages.length>0){
         console.log(result.listsMessages);
         addResponseLoader()
@@ -95,8 +100,17 @@ function clickSend(msg) {
         removeResponseLoader()
         addListsMessages(listsMessages)
       }
-      
 
+      
+      if(linkOutSuggestion){
+      
+        for (var key in linkOutSuggestion) {
+          
+          addLinkOutSuggestion(key,linkOutSuggestion[key])
+        }
+      }
+  
+  
     }
   })
 
@@ -133,7 +147,7 @@ function addResponseMsg(msg) {
 
 function addSuggestionsMessages(msg) {
   var div = document.createElement("div");
-  div.innerHTML = "<div class='chat-message-received' style='cursor:pointer;background-color:#c0dddd;' onclick='clickSend("+'"'+msg+'"'+")'>" + msg + "</div>";
+  div.innerHTML = "<div class='chat-message-received' style='border-radius: 25px;cursor:pointer;background-color:#c0dddd;' onclick='clickSend("+'"'+msg+'"'+")'>" + msg + "</div>";
   div.className = "chat-message-div";
   document.getElementById("message-box").appendChild(div);
   document.getElementById("message-box").scrollTop = document.getElementById(
@@ -145,15 +159,22 @@ function addListsMessages(msgs) {
   var div = document.createElement("div");
   console.log('msgs');
   var i, len, text; 
-  myhtml= "<div class='chat-message-received' style='cursor:pointer;background-color:#c0dddd;'><ul style='padding-left: 15px;'>";
+  myhtml= "<div class='chat-message-received' style='background-color:#b7f3dd;'><ul style='padding-left: 15px;'>";
   for (i = 0, len = msgs.length, text = ""; i < len; i++) {
     myhtml=myhtml+'<li>'+msgs[i]+'</li>';
     }
-
     myhtml+='</ul></div>';
-  
     div.innerHTML=myhtml;
-
+  div.className = "chat-message-div";
+  document.getElementById("message-box").appendChild(div);
+  document.getElementById("message-box").scrollTop = document.getElementById(
+    "message-box"
+  ).scrollHeight;
+  running = false;
+}
+function addLinkOutSuggestion(name,link) {
+  var div = document.createElement("div");
+  div.innerHTML = "<div class='chat-message-received' style='border-radius: 25px;cursor:pointer;background-color:#c0dddd;'><a href='"+link+"' target='blank' style='text-decoration: none;color: #000;'>"+name+"</a></div>";
   div.className = "chat-message-div";
   document.getElementById("message-box").appendChild(div);
   document.getElementById("message-box").scrollTop = document.getElementById(
