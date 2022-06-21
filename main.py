@@ -17,9 +17,9 @@ from fastapi.middleware.cors import CORSMiddleware
 
 def dialogflowChat(query):
     
-    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = 'holibasil-26e7b545d7ff.json'
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = <--Give your file provided by google dialogflow-->
 
-    DIALOGFLOW_PROJECT_ID = 'holibasil'
+    DIALOGFLOW_PROJECT_ID = <--Your Project ID-->
     DIALOGFLOW_LANGUAGE_CODE = 'en'
     SESSION_ID = 'me'
 
